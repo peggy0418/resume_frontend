@@ -7,9 +7,12 @@
     <ul>
       <h1>留言列表</h1>
       <li v-for="message in messages" :key="message.msg_id">
-        <!-- <p>編號: {{ message.msg_id }}</p> -->
         <p>姓名: {{ message.sender }}</p>
-        <p>內容: {{ message.message }}</p>
+        <p v-if="message.msg_id !== editingMessage">{{ message.message }}</p>
+        <input v-else v-model="editedMessage">
+        <button @click="message.msg_id === editingMessage ? updateMessage(message.msg_id) : editMessage(message)">
+          {{ message.msg_id === editingMessage ? '儲存' : '編輯' }}
+        </button> | 
         <button @click="deleteMessage(message.msg_id)">刪除</button>
       </li>
     </ul>
@@ -26,6 +29,8 @@ export default {
       newMessage: '',
       senders: [],
       messages: [],
+      editingMessage: null,
+      editedMessage: '',
     };
   },
   created() {
@@ -53,12 +58,32 @@ export default {
           console.error('發生錯誤：', error);
         });
     },
+    editMessage(message) {
+      this.editedMessage = message.message;
+      this.editingMessage = message.msg_id;
+    },
+    updateMessage(msg_id) {
+      axios.put(`/api/messages/${msg_id}`, { message: this.editedMessage })
+        .then(response => {
+          this.messages = this.messages.map(message => {
+            if (message.msg_id === msg_id) {
+              message.message = this.editedMessage;
+            }
+            return message;
+          });
+          this.editingMessage = null;
+          this.editedMessage = '';
+          alert('儲存成功！');
+        })
+        .catch(error => {
+          console.error('更新錯誤：', error);
+        });
+    },
     deleteMessage(msg_id) {
       axios.delete(`/api/messages/${msg_id}`)
         .then(response => {
-          // 删除成功后从messages数组中移除被删除的消息
           this.messages = this.messages.filter(message => message.msg_id !== msg_id);
-          alert('刪除成功!')
+          alert('刪除成功!');
         })
         .catch(error => {
           console.error('刪除錯誤：', error);
