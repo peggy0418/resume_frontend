@@ -39,39 +39,35 @@
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      personalInfo: {
-        name: "張珮綺",
-        jobTitle: "前端工程師-實習生",
-        email: "but5863841@email.com",
-        phone: "0908-585-010",
-        address: "台中市 龍井區",
-      },
-      education: [
-        {
-          id: 1,
-          degree: "學士",
-          school: "國立雲林科技大學",
-          year: "2019-2022",
-        },
-        // Add more education entries as needed
-      ],
-      experience: [
-        {
-          id: 1,
-          position: "前端工程師-實習生",
-          company: "Monosparta",
-          year: "2023/7-現在",
-          description: "",
-        },
-        // Add more work experience entries as needed
-      ],
-    };
-  },
+<script setup>
+const personalInfo = {
+  name: "張珮綺",
+  jobTitle: "前端工程師-實習生",
+  email: "but5863841@email.com",
+  phone: "0908-585-010",
+  address: "台中市 龍井區",
 };
+
+const education = [
+  {
+    id: 1,
+    degree: "學士",
+    school: "國立雲林科技大學",
+    year: "2019-2022",
+  },
+  // Add more education entries as needed
+];
+
+const experience = [
+  {
+    id: 1,
+    position: "前端工程師-實習生",
+    company: "Monosparta",
+    year: "2023/7-現在",
+    description: "",
+  },
+  // Add more work experience entries as needed
+];
 </script>
 
 <style>

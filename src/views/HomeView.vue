@@ -16,3 +16,10 @@ export default defineComponent({
   },
 });
 </script>
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+</style>
