@@ -3,7 +3,7 @@
     <div class="sticky flex h-16 justify-between bg-black w-full ">
       <div class="flex">
         <div class="flex flex-shrink-0 items-center">
-          <img class="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+          <img class="h-8 w-auto" src="../src/assets/moontesttest testtest.png"
             alt="Your Company" />
         </div>
         <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
