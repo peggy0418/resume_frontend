@@ -40,6 +40,53 @@
         </div>
       </dl>
     </div>
+    <!-- 專業技能 -->
+    <h2 class="font-semibold text-gray-900">專業技能</h2>
+    <div class="mt-6 border-t border-gray-100">
+      <div class="mt-6 px-4 mb-6 sm:px-6 lg:px-8 border rounded">
+        <div class="flow-root">
+          <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
+            <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
+              <table class="min-w-full divide-y divide-gray text-center">
+                <thead>
+                  <tr class="divide-x divide-gray ">
+                    <th scope="col" class="py-3.5 pl-4 pr-4  text-sm font-semibold text-gray-900 sm:pl-0">前端技能
+                    </th>
+                    <th scope="col" class="px-4 py-3.5  text-sm font-semibold text-gray-900">後端技能</th>
+                    <th scope="col" class="px-4 py-3.5  text-sm font-semibold text-gray-900">資料庫</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-gray bg-white text-left">
+                  <tr v-for="skill in skills_row1" :key="skill.id " class="divide-x divide-gray">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">{{
+                      skill.frontend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.backend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.database_name }}</td>
+                  </tr>
+                  <tr v-for="skill in skills_row2" :key="skill.id" class="divide-x divide-gray">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">{{
+                      skill.frontend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.backend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.database_name }}</td>
+                  </tr>
+                  <tr v-for="skill in skills_row3" :key="skill.id" class="divide-x divide-gray">
+                    <td class="whitespace-nowrap py-4 pl-4 pr-4 text-sm font-medium text-gray-900 sm:pl-0">{{
+                      skill.frontend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.backend_name }}</td>
+                    <td class="whitespace-nowrap p-4 text-sm text-black">{{ skill.database_name }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 sm:px-0" v-for="sk in frontend_skills" :key="sk.id">
+        <dd class="mt-1 text-sm leading-6 text-gray-700 sm:col-span-2 sm:mt-0"></dd> -->
+      <!-- </div> -->
+
+    </div>
+
     <!-- 作品連結 -->
     <h2 class="font-semibold text-gray-900">作品集連結</h2>
     <div class="mt-6 border-t border-gray-100">
@@ -74,10 +121,9 @@
   </div>
 </template>
 
+
 <script setup>
 import { PaperClipIcon } from '@heroicons/vue/20/solid'
-
-
 
 const personalInfo = {
   name: "張珮綺",
@@ -104,4 +150,28 @@ const experience = [
     description: "",
   },
 ];
+const skills_row1 =
+  [
+    {
+      frontend_name: "html",
+      backend_name: "php",
+      database_name: "mysql"
+    },
+  ]
+const skills_row2 =
+  [
+    {
+      frontend_name: "css",
+      backend_name: "node.js",
+      database_name: "maria db"
+    },
+  ];
+const skills_row3 =
+  [
+    {
+      frontend_name: "javascript",
+      backend_name: "",
+      database_name: ""
+    },
+  ];
 </script> 
